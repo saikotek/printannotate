@@ -26,7 +26,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'printannotate = printannotate.__main__:main',
+            'printannotate = printannotate.__main__:entrypoint',
         ],
     },
     install_requires=[
