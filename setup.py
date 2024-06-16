@@ -7,6 +7,12 @@ def get_version():
     # Check if version is passed as an environment variable
     version = os.getenv('PACKAGE_VERSION')
 
+    if version.startswith('refs/tags/'):
+        version = version[10:]
+
+    if version.startswith('v'):
+        version = version[1:]
+
     if version and re.match(r'^\d+\.\d+\.\d+$', version):
         return version
 
