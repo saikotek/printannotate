@@ -30,4 +30,6 @@ pip install printannotate
 
 ## Usage
 
-py -m printannotate <script_path>
+`py -m printannotate <script_path>`<br>
+or<br>
+`printannotate <script_path>`
