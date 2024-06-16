@@ -16,9 +16,11 @@ def get_version():
             return version
         else:
             print(f"Tag version '{version}' does not match the format 'x.y.z'.")
+            raise ValueError(f"Invalid version tag: {version}")
         return version
     except Exception as e:
         print(f"Error getting version from git tag: {e}")
+        raise e
 
 
 setup(
