@@ -1,10 +1,21 @@
 import subprocess
 from setuptools import setup, find_packages
+import re
 
 def get_version():
     try:
         # Extract the version from the git tag
-        version = subprocess.check_output(["git", "describe", "--tags"]).strip().decode("utf-8")
+        version = subprocess.check_output(
+            ["git", "describe", "--tags", "abbrev=0"]).strip().decode("utf-8")
+
+        # Strip the 'v' prefix from the git tag
+        if version.startswith('v'):
+            version = version[1:]
+
+        if re.match(r'^\d+\.\d+\.\d+$', version):
+            return version
+        else:
+            print(f"Tag version '{version}' does not match the format 'x.y.z'.")
         return version
     except Exception as e:
         print(f"Error getting version from git tag: {e}")
