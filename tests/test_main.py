@@ -15,10 +15,6 @@ class TestPrintAnnotate(unittest.TestCase):
         # Restore stdout
         sys.stdout = self.held
 
-    def test_1(self):
-        print("test1")
-        self.assertEqual(sys.stdout.getvalue().strip(), "test1")
-
     def test_print_annotation(self):
         # Get the path to the test script
         file_dir = os.path.dirname(__file__)
