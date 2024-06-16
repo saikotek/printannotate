@@ -1,8 +1,18 @@
+import subprocess
 from setuptools import setup, find_packages
+
+def get_version():
+    try:
+        # Extract the version from the git tag
+        version = subprocess.check_output(["git", "describe", "--tags"]).strip().decode("utf-8")
+        return version
+    except Exception as e:
+        print(f"Error getting version from git tag: {e}")
+
 
 setup(
     name='printannotate',
-    version='0.1.0',
+    version=get_version(),
     packages=find_packages(),
     entry_points={
         'console_scripts': [
