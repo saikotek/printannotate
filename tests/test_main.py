@@ -22,7 +22,7 @@ class TestPrintAnnotate(unittest.TestCase):
     def test_print_annotation(self):
         # Get the path to the test script
         file_dir = os.path.dirname(__file__)
-        file_path = f"{file_dir}\\test_scripts\\fstrings.py"
+        file_path = os.path.join(file_dir, 'test_scripts', 'fstrings.py')
 
         # Run the printannotate command on the test script
         output = annotate(file_path)
